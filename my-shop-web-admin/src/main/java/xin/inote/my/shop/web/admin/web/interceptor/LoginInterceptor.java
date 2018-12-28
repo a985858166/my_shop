@@ -2,7 +2,7 @@ package xin.inote.my.shop.web.admin.web.interceptor;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-import xin.inote.my.shop.constant.ConstantUtils;
+import xin.inote.my.shop.commons.constant.ConstantUtils;
 import xin.inote.my.shop.domain.TbUser;
 
 import javax.servlet.http.HttpServletRequest;

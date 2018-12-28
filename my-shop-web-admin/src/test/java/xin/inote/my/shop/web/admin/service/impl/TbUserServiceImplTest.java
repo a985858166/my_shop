@@ -26,11 +26,11 @@ public class TbUserServiceImplTest {
     @Test
     public void insert(){
         TbUser tbUser = new TbUser();
-        tbUser.setUsername("adsfsd");
-        tbUser.setPassword(DigestUtils.md5DigestAsHex("dfadsf".getBytes()));
+        tbUser.setUsername("qq");
+        tbUser.setPassword(DigestUtils.md5DigestAsHex("123456".getBytes()));
         tbUser.setUpdated(new Date());
         tbUser.setCreated(new Date());
-        tbUser.setEmail("sdfljfd");
+        tbUser.setEmail("qq@qq.com");
         tbUser.setPhone("12323456534");
         tbUserDao.insert(tbUser);
     }
@@ -54,5 +54,4 @@ public class TbUserServiceImplTest {
     public void login2(){
         tbUserDao.login("qq@qq.com",DigestUtils.md5DigestAsHex("123456".getBytes()));
     }
-
 }

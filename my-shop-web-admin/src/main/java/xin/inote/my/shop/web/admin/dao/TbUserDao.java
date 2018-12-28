@@ -4,6 +4,8 @@ import org.apache.ibatis.annotations.Param;
 import xin.inote.my.shop.domain.TbUser;
 
 import java.util.List;
+import java.util.Map;
+
 
 public interface TbUserDao {
     TbUser getByEmail(String email);
@@ -13,4 +15,10 @@ public interface TbUserDao {
     List<TbUser> selectAll();
     List<TbUser> selectByUsername(String username);
     TbUser login(@Param("email") String email,@Param("password") String password);
+    List<TbUser> page(Map<String,Object> map);
+    int count(TbUser tbUser);
+
+    void update(TbUser tbUser);
+
+    void deleteMulti(String[] idArray);
 }

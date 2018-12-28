@@ -1,4 +1,4 @@
-package xin.inote.my.shop.constant;
+package xin.inote.my.shop.commons.constant;
 
 /**
  * @program: my_shop
