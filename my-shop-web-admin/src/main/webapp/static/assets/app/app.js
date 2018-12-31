@@ -17,7 +17,7 @@ var App = function () {
         addRemoveLinks: true,
         parallelUploads: 1, // 一次上传的文件数量
         dictDefaultMessage: '拖动文件至此或者点击上传',
-        dictMaxFilesExceeded: "您最多只能上传 1 个文件！",
+        dictMaxFilesExceeded: "您最多只能上传 "+this.maxFiles+" 个文件！",
         dictResponseError: '文件上传失败!',
         dictInvalidFileType: "文件类型只能是*.jpg,*.gif,*.png,*.jpeg",
         dictFallbackMessage: "浏览器不受支持",

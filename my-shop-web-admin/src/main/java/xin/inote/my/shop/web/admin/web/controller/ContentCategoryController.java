@@ -3,9 +3,12 @@ package xin.inote.my.shop.web.admin.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import xin.inote.my.shop.commons.dto.BaseResult;
 import xin.inote.my.shop.domain.TbContentCategory;
 import xin.inote.my.shop.web.admin.service.TbContentCategoryService;
 
@@ -17,6 +20,17 @@ import java.util.List;
 public class ContentCategoryController {
     @Autowired
     private TbContentCategoryService tbContentCategoryService;
+    @ModelAttribute
+    public TbContentCategory getTbContentCategory(Long id) {
+        TbContentCategory tbContentCategory = null;
+        //如果用户id不为空则获取该id的信息
+        if (id != null) {
+            tbContentCategory = tbContentCategoryService.getById(id);
+        } else {
+            tbContentCategory = new TbContentCategory();
+        }
+        return tbContentCategory;
+    }
     @RequestMapping(value = "list",method = RequestMethod.GET)
     public String list(Model model){
         List<TbContentCategory> targetList = new ArrayList<>();
@@ -60,6 +74,27 @@ public class ContentCategoryController {
             id = 0L;
         }
         return tbContentCategoryService.selectByPid(id);
+    }
+    @RequestMapping(value = "form",method = RequestMethod.GET)
+    public String form(){
+        return "content_category_form";
+    }
+
+    @RequestMapping(value = "save", method = RequestMethod.POST)
+    public String save(TbContentCategory tbContentCategory, Model model, RedirectAttributes redirectAttributes) {
+        BaseResult baseResult = tbContentCategoryService.save(tbContentCategory);
+
+        // 保存成功
+        if (baseResult.getStatus() == 200) {
+            redirectAttributes.addFlashAttribute("baseResult", baseResult);
+            return "redirect:list";
+        }
+
+        // 保存失败
+        else {
+            model.addAttribute("baseResult", baseResult);
+            return "content_category_form";
+        }
     }
 
 }

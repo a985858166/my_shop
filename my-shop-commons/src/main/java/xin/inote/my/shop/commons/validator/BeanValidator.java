@@ -1,5 +1,7 @@
 package xin.inote.my.shop.commons.validator;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -121,5 +123,9 @@ public class BeanValidator {
         }
 
         return null;
+    }
+
+    public void setVallidator(LocalValidatorFactoryBean vallidator) {
+        BeanValidator.validator = vallidator;
     }
 }

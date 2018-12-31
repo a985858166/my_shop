@@ -162,7 +162,7 @@
             {"data": "titleDesc"},
             {
                 "data": function (row, type, val, meta) {
-                    if (row.url == null) {
+                    if (row.url == null || row.url == "") {
                         return '';
                     }
                     return "<a href='" + row.url + "' target='_blank'>查看</a>"
@@ -170,7 +170,7 @@
             },
             {
                 "data": function (row, type, val, meta) {
-                    if (row.pic == null) {
+                    if (row.pic == null || row.pic == "") {
                         return '';
                     }
                     return "<a href='" + row.pic + "' target='_blank'>查看</a>"
@@ -178,7 +178,7 @@
             },
             {
                 "data": function (row, type, val, meta) {
-                    if (row.pic2 == null) {
+                    if (row.pic2 == null || row.pic2 == "") {
                         return '';
                     }
                     return "<a href='" + row.pic2 + "' target='_blank'>查看</a>"

@@ -28,7 +28,7 @@ public class ContentController {
      * @return
      */
     @ModelAttribute
-    public TbContent getTbUser(Long id) {
+    public TbContent getTbContent(Long id) {
         TbContent tbContent = null;
         //如果用户id不为空则获取该id的信息
         if (id != null) {
@@ -61,6 +61,7 @@ public class ContentController {
         int start = strstart == null?0:Integer.parseInt(strstart);
         int length = strlength==null?10:Integer.parseInt(strlength);
         PageInfo<TbContent> pageInfo = tbContentService.page(start,length,draw,tbContent);
+
         return pageInfo;
     }
     @RequestMapping(value = "form", method = RequestMethod.GET)
@@ -100,9 +101,9 @@ public class ContentController {
         if (StringUtils.isNotBlank(ids)) {
             String[] idArray = ids.split(",");
             tbContentService.deleteMulti(idArray);
-            baseResult = BaseResult.success("删除用户成功");
+            baseResult = BaseResult.success("删除内容成功");
         } else {
-            baseResult = BaseResult.fail("删除用户失败");
+            baseResult = BaseResult.fail("删除内容失败");
         }
 
         return baseResult;

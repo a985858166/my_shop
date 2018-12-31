@@ -49,14 +49,7 @@
             #{id}
         </foreach>
     </delete>
-    <select id="getByEmail" resultType="xin.inote.my.shop.domain.TbUser">
-    SELECT
-        <include refid="tbUserColumns"/>
-    FROM
-      tb_user AS a
-    WHERE
-        a.email = #{email}
-    </select>
+
     <select id="getById" resultType="xin.inote.my.shop.domain.TbUser">
         SELECT
         <include refid="tbUserColumns"/>
@@ -71,14 +64,7 @@
         FROM
         tb_user AS a
     </select>
-    <select id="selectByUsername" resultType="xin.inote.my.shop.domain.TbUser">
-        SELECT
-        <include refid="tbUserColumns"/>
-        FROM
-        `tb_user` AS a
-        WHERE
-        a.username LIKE CONCAT ('%', #{username}, '%')
-    </select>
+
     <select id="login" resultType="xin.inote.my.shop.domain.TbUser">
         SELECT
         <include refid="tbUserColumns"/>

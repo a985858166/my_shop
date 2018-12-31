@@ -39,10 +39,6 @@ public class TbUserServiceImplTest {
         tbUserDao.delete(43L);
     }
     @Test
-    public void getByEmail(){
-        tbUserDao.getByEmail("qq@qq.com");
-    }
-    @Test
     public void getById(){
         tbUserDao.getById(7L);
     }
