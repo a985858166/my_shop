@@ -1,14 +1,20 @@
 package xin.inote.my.shop.commons.persistence;
 
 import xin.inote.my.shop.commons.dto.BaseResult;
-import xin.inote.my.shop.commons.dto.PageInfo;
+
+import java.util.List;
 
 public interface BaseTreeService<T extends BaseEntity> {
-    PageInfo<T> page(int start, int length, int draw, T entity);
+
+    List<T> selectAll();
 
     BaseResult save(T entity);
 
-    void deleteMulti(String[] idArray);
+    void delete(String[] idArray);
 
     T getById(Long id);
+
+    void update(T entity);
+
+    List<T> selectByPid(Long pid);
 }
